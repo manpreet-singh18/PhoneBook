@@ -1,0 +1,56 @@
+<%- include("head") %>
+
+
+
+
+<div class="contact">
+    <form action="/update" method="post" id="update" style="display:none">
+        <input type="text" name="updateto" class="updatevalue" value="">
+    </form>
+
+    <% for(let i=0;i<names.length;i++){ %>
+    <div class="contacts">
+        <p><%= names[i]%></p>
+
+        <div class="buttons">
+            <input type="text" class="con" value="<%= phones[i]%>" name="updateto" class="phone"
+                onchange="setvalue(this.value)">
+            <div>
+                <button type="submit" class="btn btn-primary " name="toupdate" value="<%= i%>" form="update"
+                    class="update"><img
+                        src="https://img.icons8.com/carbon-copy/20/000000/approve-and-update.png" /></button>
+                <button type="submit" class="btn btn-primary " name="itempos" value="<%= i%>" form="add_form"><img
+                        src="https://img.icons8.com/material-outlined/20/000000/delete-forever.png" /></button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <% } %>
+
+
+    <form class="contacts" action="/addContact" method="post" id="add_form" class="upForm">
+        <input type="text" name="name" placeholder="Enter Name" autocomplete="off" class="con">
+        <input type="text" name="phone" placeholder="Phone" autocomplete="off" class="con">
+    </form>
+    <div class="sub">
+        <button type="submit" class="btn btn-primary " name="what" value="add" form="add_form">Submit</button>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<%- include("foot") %>
